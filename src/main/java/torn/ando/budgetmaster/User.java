@@ -7,10 +7,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
@@ -21,14 +18,20 @@ public class User {
     double mensualBudget;
     List<Expense> expenseList;
 
+    public User(String name, double mensualBudget) {
+        this.name = name;
+        this.mensualBudget = mensualBudget;
+    }
+
     public void addExpense(Expense expense) {
         if(expense.getAmount()<=0){
             throw new IllegalArgumentException("Expense amount must be greater than zero");
         }else expenseList.add(expense);
     }
 
-    public void getAllByDate(){
-        expenseList.sort();
+    public List<Expense> getAllByDate(){
+        Collections.sort(expenseList, Comparator.comparing(expense -> expense.getExpenseDate()));
+        return expenseList;
     }
 
     public double getExpenseByCategory(Category category){
@@ -65,7 +68,7 @@ public class User {
                 }
             }
         }
-        orderByCategory.entrySet().stream().sorted();
+        orderByCategory
     }
 
 }
