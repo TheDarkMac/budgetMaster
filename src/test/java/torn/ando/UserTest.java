@@ -17,7 +17,7 @@ public class UserTest {
     public void createExpense(){
         User user = new User("john",500_000);
         Expense expense1 = new Expense("mofogasy 100",5_000, Category.FOOD_RESTAURANT, LocalDate.now());
-        Expense expense2 = new Expense("ramanonaka 10",500, Category.FOOD_RESTAURANT, LocalDate.now());
+        Expense expense2 = new Expense("ramanonaka 10",500, Category.FOOD_RESTAURANT, LocalDate.of(2024,6,1));
 
         List<Expense> expenseList = new ArrayList<>();
         expenseList.add(expense1);
@@ -26,5 +26,6 @@ public class UserTest {
 
         user.addExpense(expense2);
         Assertions.assertEquals(user.getExpenseList(), expenseList);
+        Assertions.assertEquals(user.getTotalSpentThisMonth(),5_000);
     }
 }

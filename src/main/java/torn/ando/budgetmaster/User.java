@@ -73,6 +73,10 @@ public class User {
         return getMensualBudget() - getTotalSpentThisMonth();
     }
 
+    public Map<Category, Double> calculateAverageSpendingPerCategory(){
+        return null;
+    }
+
     public void getTopCategories(){
         Map<Category,Double> orderByCategory = new HashMap<>();
         for (Expense expense : expenseList) {
