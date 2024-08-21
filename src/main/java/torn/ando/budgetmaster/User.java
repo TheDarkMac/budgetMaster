@@ -21,6 +21,7 @@ public class User {
     public User(String name, double mensualBudget) {
         this.name = name;
         this.mensualBudget = mensualBudget;
+        this.expenseList = new ArrayList<>();
     }
 
     public void addExpense(Expense expense) {
@@ -68,7 +69,6 @@ public class User {
                 }
             }
         }
-        orderByCategory
     }
 
 }
