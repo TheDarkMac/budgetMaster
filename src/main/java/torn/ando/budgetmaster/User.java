@@ -27,6 +27,10 @@ public class User {
         }else expenseList.add(expense);
     }
 
+    public void getAllByDate(){
+        expenseList.sort();
+    }
+
     public double getExpenseByCategory(Category category){
         double sum = 0;
         for(Expense expense : expenseList){
@@ -61,7 +65,7 @@ public class User {
                 }
             }
         }
-        
+        orderByCategory.entrySet().stream().sorted();
     }
 
 }
