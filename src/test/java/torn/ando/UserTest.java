@@ -16,10 +16,15 @@ public class UserTest {
     @Test
     public void createExpense(){
         User user = new User("john",500_000);
-        Expense expense = new Expense("mofogasy 100",5_000, Category.FOOD_RESTAURANT, LocalDate.now());
+        Expense expense1 = new Expense("mofogasy 100",5_000, Category.FOOD_RESTAURANT, LocalDate.now());
+        Expense expense2 = new Expense("ramanonaka 10",500, Category.FOOD_RESTAURANT, LocalDate.now());
+
         List<Expense> expenseList = new ArrayList<>();
-        expenseList.add(expense);
-        user.addExpense(expense);
+        expenseList.add(expense1);
+        expenseList.add(expense2);
+        user.addExpense(expense1);
+
+        user.addExpense(expense2);
         Assertions.assertEquals(user.getExpenseList(), expenseList);
     }
 }

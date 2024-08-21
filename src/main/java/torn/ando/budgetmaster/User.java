@@ -18,6 +18,19 @@ public class User {
     double mensualBudget;
     List<Expense> expenseList;
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        User user = (User) object;
+        return Double.compare(mensualBudget, user.mensualBudget) == 0 && Objects.equals(name, user.name) ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, mensualBudget);
+    }
+
     public User(String name, double mensualBudget) {
         this.name = name;
         this.mensualBudget = mensualBudget;
