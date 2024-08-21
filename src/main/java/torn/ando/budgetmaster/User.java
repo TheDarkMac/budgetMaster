@@ -74,10 +74,11 @@ public class User {
     }
 
     public Map<Category, Double> calculateAverageSpendingPerCategory(){
+        Map<Category, Double> averageSpendingPerCategory = new HashMap<>();
         return null;
     }
 
-    public void getTopCategories(){
+    public Map<Category, Double> getTopCategories(){
         Map<Category,Double> orderByCategory = new HashMap<>();
         for (Expense expense : expenseList) {
             for (Category category : Category.values()) {
@@ -86,6 +87,7 @@ public class User {
                 }
             }
         }
+        return null;
     }
 
 }
